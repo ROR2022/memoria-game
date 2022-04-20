@@ -1,23 +1,56 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
+import Header from './Header';
+import Main from './Main';
 
 function App() {
+  const [images, setImages]=useState([]);
+  const [nivel, setNivel]=useState(1);
+  
+
+  
+
+ useEffect(function () {
+  fetch("https://api.imgflip.com/get_memes")
+  .then(res=> res.json())
+  .then(data=> {
+      setImages(data.data.memes);
+  })
+}, [])
+
+const baraja = ()=> {
+  let array = [];
+  let arrayTemp = images;
+  if (images.length>95){
+    for (let i=0; i<(4*nivel);i++){
+      let number = Math.floor(Math.random()*arrayTemp.length);
+        array[i]= {
+          url: arrayTemp[number].url,
+          name: arrayTemp[number].name,
+          hold: false
+        }
+        arrayTemp = arrayTemp.filter(item=>item.name!==array[i].name);
+        
+    }
+  }
+  return array;
+}
+
+  function aumentaNivel() {
+    setNivel(prev=> prev+1);
+    console.log("nuevo nivel:",nivel);
+  }
+
+
+ 
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Header/>
+        
+        {images.length>0 && <Main baraja={baraja()} aumentaNivel={()=>aumentaNivel()}/>}
+        {nivel>1 && <Main baraja={baraja()}/> }
     </div>
   );
 }
