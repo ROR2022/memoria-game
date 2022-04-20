@@ -22,7 +22,7 @@ const baraja = ()=> {
   let array = [];
   let arrayTemp = images;
   if (images.length>95){
-    for (let i=0; i<(4*nivel);i++){
+    for (let i=0; i<(3*nivel);i++){
       let number = Math.floor(Math.random()*arrayTemp.length);
         array[i]= {
           url: arrayTemp[number].url,
@@ -33,6 +33,7 @@ const baraja = ()=> {
         
     }
   }
+  
   return array;
 }
 
@@ -50,7 +51,10 @@ const baraja = ()=> {
         <Header/>
         
         {images.length>0 && <Main baraja={baraja()} aumentaNivel={()=>aumentaNivel()}/>}
-        {nivel>1 && <Main baraja={baraja()}/> }
+        {nivel===2 && <Main baraja={baraja()} aumentaNivel={()=>aumentaNivel()}/> }
+        {nivel===3 && <Main baraja={baraja()} aumentaNivel={()=>aumentaNivel()}/> }
+        {nivel===4 && <Main baraja={baraja()} aumentaNivel={()=>aumentaNivel()}/> }
+        {nivel===5 && <Main baraja={baraja()} />} 
     </div>
   );
 }

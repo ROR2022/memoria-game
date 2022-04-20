@@ -7,6 +7,7 @@ export default function Main(props) {
     const [parejas, setParejas]=useState(images2.filter(item=>item.hold));
     const [cont, setCont]=useState(0);
 
+    console.log(props.baraja);
     useEffect(()=>{
       setCont(0);
     },[props.baraja])
@@ -64,7 +65,7 @@ export default function Main(props) {
            
             <img className='imagen' 
             onClick={()=>toggleHold(item.id)}
-            src={item.hold ? item.url : './signo1.png' } alt=''/>
+            src={item.hold ? item.url : "./signo1.png" } alt=''/>
             
             
         </div>)
@@ -96,7 +97,7 @@ export default function Main(props) {
     }, [parejas])
 
       
-    
+  console.log(images2);
   return (
     <div className='img_container'>
         {imagenes}
