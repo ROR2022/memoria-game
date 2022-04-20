@@ -104,6 +104,7 @@ export default function Main(props) {
         {cont===props.baraja.length && <div>
           <Confetti width={window.innerWidth} height={window.innerHeight}/> 
           <div className='feli'>Felicidades!!!</div>
+          <div className='level'>Nivel: {props.nivel} completo</div>
           {props.baraja.length<15 && <button className="nivel" onClick={props.aumentaNivel}>Aumentar Nivel</button> }  
           
           </div>

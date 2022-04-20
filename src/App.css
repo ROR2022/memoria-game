@@ -26,19 +26,24 @@
   padding: 1vw;
 }
 
-.feli {
+.feli, .level {
   position: absolute;
   font-size: 10vw;
-  top: 30vw;
+  top: 25vw;
   left: 20vw;
   color: brown;
   font-family: 'Sansita Swashed', cursive;
 }
 
+.level {
+  top: 35vw;
+  left: 10vw;
+}
+
 
 .nivel {
   position: absolute;
-  top: 45vw;
+  top: 50vw;
   left: 10vw;
 	box-shadow: 9px 6px 8px 8px #3dc21b;
 	background-color:#44c767;

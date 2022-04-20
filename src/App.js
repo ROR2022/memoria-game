@@ -50,11 +50,11 @@ const baraja = ()=> {
     <div className="App">
         <Header/>
         
-        {images.length>0 && <Main baraja={baraja()} aumentaNivel={()=>aumentaNivel()}/>}
-        {nivel===2 && <Main baraja={baraja()} aumentaNivel={()=>aumentaNivel()}/> }
-        {nivel===3 && <Main baraja={baraja()} aumentaNivel={()=>aumentaNivel()}/> }
-        {nivel===4 && <Main baraja={baraja()} aumentaNivel={()=>aumentaNivel()}/> }
-        {nivel===5 && <Main baraja={baraja()} />} 
+        {images.length>0 && <Main baraja={baraja()} nivel={nivel} aumentaNivel={()=>aumentaNivel()}/>}
+        {nivel===2 && <Main baraja={baraja()} nivel={nivel} aumentaNivel={()=>aumentaNivel()}/> }
+        {nivel===3 && <Main baraja={baraja()} nivel={nivel} aumentaNivel={()=>aumentaNivel()}/> }
+        {nivel===4 && <Main baraja={baraja()} nivel={nivel} aumentaNivel={()=>aumentaNivel()}/> }
+        {nivel===5 && <Main baraja={baraja()} nivel={nivel} />} 
     </div>
   );
 }
